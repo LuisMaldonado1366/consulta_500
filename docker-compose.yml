@@ -1,0 +1,17 @@
+version: '3'
+services:
+  consulta_500:
+    restart: always
+    environment:
+      TZ: America/Mexico_City
+    container_name: consulta_500
+    image: consulta_500
+    volumes:
+          - ./app:/usr/src/app
+          - /u/.secrets:/usr/src/app/.secrets
+    networks:
+      - unit
+
+networks:
+  unit:
+    external: true
